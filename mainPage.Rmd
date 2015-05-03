@@ -14,27 +14,9 @@ library(rmarkdown)
 rmarkdown::run('mainPage.Rmd') # for interactive document
 
 ## For deployment to shinyapps.io only!
-## library(shinyapps)
-## shinyapps::deployApp(appDir=getwd(), appName="cluster-analysis")
+library(shinyapps)
+shinyapps::deployApp(appDir=getwd(), appName="cluster-analysis")
 
-```
-
-```{r navbar, echo = FALSE, eval=FALSE, message=FALSE}
-## This is the original navbar - it was replaced by
-## the HTML code in toc.html
-## shinyAppDir(
-##     "navbar/",
-##     options=list(width="100%", height=75)
-##   )
-```
-
-```{r read-in-data, echo = FALSE, eval=TRUE, message=FALSE}
-## Using Iris dataset
-library(ggplot2)
-library(reshape2)
-library(GGally)
-library(plyr)
-data(iris)
 ```
 
 # Introduction
@@ -43,24 +25,14 @@ includeMarkdown("introduction/intro.md")
 ```
 
 # Upload data
-Use the file uploader below to select a CSV file
+Use the file uploader below to select a CSV file.
+
 ```{r fileupload, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
 ## Kmeans
 shinyAppDir(
      "fileUpload/",
      options=list(width="100%", height=600)
 	 )
-```
-
-# Visualize the data
-
-```{r dataTable, echo = FALSE, eval=FALSE, message=TRUE}
-## Don't need this anymore because data table is created when file is inputted
-## tabsets example
- shinyAppDir(
-    "dataTable/",
-    options=list(width="145%", height=500)
-  )
 ```
 
 ## Clustering
@@ -75,10 +47,10 @@ shinyAppDir(
 ```{r acknowledge, echo = FALSE, eval=TRUE}
 includeMarkdown("acknowledgements/ack.md")
 ```
-<footer>
-<!-- <br><br/> -->
-<center><medium>View <a href="http://github.com/stefanavey/cluster-analysis" target="_blank" title="Cluster Analysis Source Code">Source Code</a> on Github</medium></center>
-<center><small><em>Version 0.0.1000</em> - Last Updated 2015-05-02</small></center>
-</footer>
+<!-- <footer> -->
+<!-- <\!-- <br><br/> -\-> -->
+<!-- <center><medium>View <a href="http://github.com/stefanavey/cluster-analysis" target="_blank" title="Cluster Analysis Source Code">Source Code</a> on Github</medium></center> -->
+<!-- <center><small><em>Version 0.0.1000</em> - Last Updated 2015-05-02</small></center> -->
+<!-- </footer> -->
 
 
