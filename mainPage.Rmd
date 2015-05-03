@@ -42,27 +42,34 @@ data(iris)
 includeMarkdown("introduction/intro.md")
 ```
 
+# Upload data
+Use the file uploader below to select a CSV file
+```{r fileupload, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
+## Kmeans
+shinyAppDir(
+     "fileUpload/",
+     options=list(width="100%", height=600)
+	 )
+```
+
 # Visualize the data
 
-```{r dataTable, echo = FALSE, eval=TRUE, message=TRUE}
+```{r dataTable, echo = FALSE, eval=FALSE, message=TRUE}
+## Don't need this anymore because data table is created when file is inputted
 ## tabsets example
-shinyAppDir(
+ shinyAppDir(
     "dataTable/",
     options=list(width="145%", height=500)
   )
 ```
 
-## Clustering of *Iris* Species
-```{r classintro, echo = FALSE, eval=TRUE}
-includeMarkdown("visualization/classintro.md")
-```
-
-```{r kmeans, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
-## Pairs plot
-shinyAppDir(
-    "kmeans/",
-    options=list(width="100%", height=525)
-  )
+## Clustering
+```{r clustering, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
+## Kmeans
+ shinyAppDir(
+     "clustering/",
+     options=list(width="100%", height=525)
+   )
 ```
 
 # Acknowledgements

@@ -1,7 +1,0 @@
-Title: Kmeans example
-License: MIT
-Author: Joe Cheng <joe@rstudio.com>, modified by Stefan Avey <stefan.avey@yale.edu>
-AuthorUrl: http://www.rstudio.com/
-Tags: getting-started kmeans plotoutput sliderinput numericinput reactivity
-DisplayMode: Showcase
-Type: Shiny
