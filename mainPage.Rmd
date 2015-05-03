@@ -49,7 +49,7 @@ includeMarkdown("acknowledgements/ack.md")
 
 <footer>
 <center><medium>View <a href="http://github.com/stefanavey/cluster-analysis" target="_blank" title="Cluster Analysis Source Code">Source Code</a> on Github</medium></center>
-<center><small><em>Version 0.0.1002</em> - Last Updated 2015-05-02</small></center>
+<center><small><em>Version 0.0.1002</em> - Last Updated 2015-05-03</small></center>
 </footer>
 
 
