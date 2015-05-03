@@ -42,21 +42,7 @@ data(iris)
 includeMarkdown("introduction/intro.md")
 ```
 
-
-
-# Part 1 - Organization
-## Data Types
-```{r datatypes, echo = FALSE, eval=TRUE}
-includeMarkdown("organization/intro.md")
-```
-
-
-
-## Data Description - Iris
-```{r description, echo = FALSE, eval=TRUE}
-includeMarkdown("organization/description.md")
-```
-
+# Visualize the data
 
 ```{r dataTable, echo = FALSE, eval=TRUE, message=TRUE}
 ## tabsets example
@@ -65,44 +51,6 @@ shinyAppDir(
     options=list(width="145%", height=500)
   )
 ```
-
-
-
-# Part 2 - Visualization
-```{r introviz, echo = FALSE, eval=TRUE}
-includeMarkdown("visualization/intro.md")
-```
-
-
-## Difference between groups
-
-```{r groupDiff, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
-includeMarkdown("groupDiff/groupDiff.md")
-
-shinyAppDir(
-    "groupDiff/",
-    options=list(width="100%", height=525)
-  )
-
-```
-
-
-
-
-## Common Visualization Approaches
-```{r firstpass, echo = FALSE, eval=TRUE}
-includeMarkdown("visualization/firstpass.md")
-```
-
-```{r pairs, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
-## Pairs plot
-shinyAppDir(
-    "pairs/",
-    options=list(width="100%", height=800)
-  )
-```
-
-
 
 ## Clustering of *Iris* Species
 ```{r classintro, echo = FALSE, eval=TRUE}
@@ -117,35 +65,10 @@ shinyAppDir(
   )
 ```
 
-
-
-
-## Classification of *Iris* Species
-```{r class_lda, echo = FALSE, eval=TRUE}
-includeMarkdown("visualization/class_lda.md")
-```
-
-```{r lda, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
-## LDA
-shinyAppDir(
-    "lda/",
-    options=list(width="100%", height=425)
-  )
-```
-
-
-# Wrap-Up
-```{r wrapup, echo = FALSE, eval=TRUE}
-includeMarkdown("visualization/wrapup.md")
-```
-
-
 # Acknowledgements
 ```{r acknowledge, echo = FALSE, eval=TRUE}
 includeMarkdown("acknowledgements/ack.md")
 ```
-
-
 <footer>
 <!-- <br><br/> -->
 <center><medium>View <a href="http://github.com/stefanavey/cluster-analysis" target="_blank" title="Cluster Analysis Source Code">Source Code</a> on Github</medium></center>
