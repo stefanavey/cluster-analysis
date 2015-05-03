@@ -28,8 +28,7 @@ includeMarkdown("introduction/intro.md")
 Use the file uploader below to select a CSV file.
 
 ```{r fileupload, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
-## Kmeans
-shinyAppDir(
+ shinyAppDir(
      "fileUpload/",
      options=list(width="100%", height=600)
 	 )
@@ -47,10 +46,10 @@ shinyAppDir(
 ```{r acknowledge, echo = FALSE, eval=TRUE}
 includeMarkdown("acknowledgements/ack.md")
 ```
-<!-- <footer> -->
-<!-- <\!-- <br><br/> -\-> -->
-<!-- <center><medium>View <a href="http://github.com/stefanavey/cluster-analysis" target="_blank" title="Cluster Analysis Source Code">Source Code</a> on Github</medium></center> -->
-<!-- <center><small><em>Version 0.0.1000</em> - Last Updated 2015-05-02</small></center> -->
-<!-- </footer> -->
+
+<footer>
+<center><medium>View <a href="http://github.com/stefanavey/cluster-analysis" target="_blank" title="Cluster Analysis Source Code">Source Code</a> on Github</medium></center>
+<center><small><em>Version 0.0.1000</em> - Last Updated 2015-05-02</small></center>
+</footer>
 
 
