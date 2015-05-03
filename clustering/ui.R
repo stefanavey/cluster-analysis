@@ -13,18 +13,18 @@
 shinyUI(fluidPage(
   headerPanel(""),
   sidebarPanel(
-    selectInput('rows', 'Rows', 1:nrow(dat), selected=1),
-    selectInput('cols', 'Columns', 1:ncol(dat), selected=1),
-    numericInput('clusters', 'Cluster count', 3,
-                 min = 1, max = 9),
-    checkboxInput(inputId = "indicateSpecies",
-                  label = strong("Indicate True Species"),
-                  value = FALSE)
+    checkboxInput(inputId = "update",
+                  label = strong("Update Data After Upload (Required)"),
+                  value = FALSE),
+    selectInput('method', 'Correlation for Distance',
+                c("pearson", "kendall", "spearman"), selected="pearson"),
+    selectInput('rows', 'Rows', 1:10, selected=1),
+    selectInput('cols', 'Columns', 1:10, selected=1)
   ),
   mainPanel(
-      tabsetPanel(type = "tabs",
-        tabPanel("Plot", plotOutput('plot1', height = "500px")),
-          tabPanel("Summary", verbatimTextOutput("summary"))
+    tabsetPanel(type = "tabs",
+                tabPanel("Plot", plotOutput('plot1', height = "500px", width = "500px")),
+                tabPanel("Summary", verbatimTextOutput("summary"))
       )
     )
   )

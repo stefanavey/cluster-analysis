@@ -1,28 +1,36 @@
+library(gplots)                         # for heatmap.2
+library(RColorBrewer)
+
 shinyServer(function(input, output, session) {
 
-  ## output$summary <- renderPrint({
-  ##   head(dat)
-  ## })
-
-  ## Combine the selected variables into a new data frame
-  selectedData <- reactive({
-    dat[as.numeric(input$rows), as.numeric(input$cols)]
+  myData <- reactive({
+    ## Update the data with checkbox input
+    if(input$update) {
+      dat <- datGlobal
+      dat
+    }
   })
 
   output$summary <- renderPrint({
-    head(selectedData())
+    summary(myData())
   })
 
-  clusters <- reactive({
-    kmeans(selectedData()[,c(input$xcol, input$ycol)], input$clusters)
+  ## Combine the selected variables into a new data frame
+  selectedData <- reactive({
+    myData()[as.numeric(input$rows), as.numeric(input$cols)]
   })
 
-  pch <- reactive({
-    if(input$indicateSpecies) {
-      as.numeric(selectedData()$Species)
-    } else {
-      20
-    }
+  output$plot1 <- renderPlot({
+    myDat <- myData()
+    corMat <- cor(myDat, method=input$method)
+    op <- par(mar = c(12, 4.1, 2, 15), oma=c(6, 0, 0, 6))
+    hmcols <- colorRampPalette(c("white","red"))(256)
+    hc <- hclust(as.dist(1-cor(corMat, method="spearman")), method="ward")
+    heatmap.2(corMat,
+              Colv=as.dendrogram(hc), Rowv=as.dendrogram(hc),
+              dendrogram="column", trace="none",
+              col=hmcols, scale="none")
+    par(op)
   })
 
   ## output$plot1 <- renderPlot({

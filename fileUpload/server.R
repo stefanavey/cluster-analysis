@@ -20,14 +20,18 @@ shinyServer(function(input, output) {
     }
 
     dat <- read.csv(inFile$datapath, header=input$header, sep=input$sep,
-                    quote=input$quote)
+                    quote=input$quote, check.names=FALSE)
+    rownames(dat) <- dat[,1]
+    dat <- dat[,-1]
     if(input$transpose) {
       cnames <- colnames(dat)
       dat <- as.data.frame(t(dat))
       rownames(dat) <- cnames
     }
-    rownames(dat) <- dat[,1]
-    dat <<- dat[,-1]
+    if(input$log2) {
+      dat <- log2(dat+1)
+    }
+    datGlobal <<- dat
     return(dat)
 
   }, options = list(lengthMenu = c(5, 30, 50, 100), pageLength = 5))
