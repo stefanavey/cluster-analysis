@@ -1,0 +1,3 @@
+There are a wide array of techniques available for clustering and classification - *k*-means clusteringand LDA are just a few examples of some of the tools we have at our disposal for understanding data at hand. We've also touched on common visualization approaches, and how certain visualizations can even be misleading, obscuring the depth of the data.
+
+Every visualization has its own story to tell - just as it is unreasonable to judge a book by its cover, it is also unreasonable to judge a data set by a single plot! We hope this tutorial has helped you get started with better understanding and exploring your own data, and thinking more like a data scientist. We wish you the best of luck!

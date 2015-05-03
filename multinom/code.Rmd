@@ -1,0 +1,43 @@
+```{r multinom, echo = FALSE, eval=FALSE, message=FALSE, warning=TRUE}
+
+## ## Multinomial logistic regression
+## library(nnet)
+## class.fit <- multinom(Species ~ ., data=iris)
+## class <- predict(class.fit)
+## 2 observations are misclassified using multinomial logistic regression
+## ## http://www.r-bloggers.com/how-to-multinomial-regression-models-in-r/
+## predictMNL <- function(model, newdata) {
+##   ## Only works for neural network models
+##   if (is.element("nnet",class(model))) {
+##     ## Calculate the individual and cumulative probabilities
+##     probs <- predict(model,newdata,"probs")
+##     cum.probs <- t(apply(probs,1,cumsum))
+##     ## Draw random values
+##     vals <- runif(nrow(newdata))
+##     ## Join cumulative probabilities and random draws
+##     tmp <- cbind(cum.probs,vals)
+##     ## For each row, get choice index.
+##     k <- ncol(probs)
+##     ids <- 1 + apply(tmp,1,function(x) length(which(x[1:k] < x[k+1])))
+##     ## Return the values
+##     return(ids)
+##   }
+## }
+## n <- 200
+## df <- data.frame(Sepal.Length=runif(n,0,8),
+##                  Sepal.Width=runif(n,0,8),
+##                  Petal.Length=runif(n,0,8),
+##                  Petal.Width=runif(n,0,8), set="Model")
+## y2 <- predictMNL(class.fit, df)
+## df$pred <- y2
+
+## Logistic Regression
+library(MASS)
+lda.fit <- lda(Species ~ ., data=iris)
+class <- predict(lda.fit)$class
+misClass <- which(!class == iris$Species)
+## 3 observations are misclassified using linear discriminant analysis
+points(res$x[misClass,"PC1"],
+       res$x[misClass,"PC2"], col='black', pch=1, cex=3)
+
+```
