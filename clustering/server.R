@@ -25,7 +25,11 @@ shinyServer(function(input, output, session) {
     corMat <- cor(myDat, method=input$method)
     op <- par(mar = c(12, 4.1, 2, 15), oma=c(6, 0, 0, 6))
     hmcols <- colorRampPalette(c("white","red"))(256)
-    hc <- hclust(as.dist(1-cor(corMat, method="spearman")), method="ward")
+    hc <- hclust(dist(corMat, method=input$distMethod),
+                 method=input$clustMethod)
+    ## hc <- hclust(dist(t(myDat), method=input$distMethod),
+    ##              method=input$clustMethod)
+    ## hc <- hclust(as.dist(1-cor(corMat, method="spearman")), method=input$clustMethod)
     heatmap.2(corMat,
               Colv=as.dendrogram(hc), Rowv=as.dendrogram(hc),
               dendrogram="column", trace="none",

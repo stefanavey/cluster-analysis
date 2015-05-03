@@ -16,10 +16,14 @@ shinyUI(fluidPage(
     checkboxInput(inputId = "update",
                   label = strong("Update Data After Upload (Required)"),
                   value = FALSE),
-    selectInput('method', 'Correlation for Distance',
+    selectInput('method', 'Correlation Method',
                 c("pearson", "kendall", "spearman"), selected="pearson"),
-    selectInput('rows', 'Rows', 1:10, selected=1),
-    selectInput('cols', 'Columns', 1:10, selected=1)
+    selectInput('distMethod', 'Distance Method for Clustering',
+                c("euclidean", "maximum", "manhattan", "canberra",
+                  "binary", "minkowski"), selected="manhattan"),
+    selectInput('clustMethod', 'Agglomeration Method for Clustering',
+                c("complete", "ward", "single", "average",
+                  "mcquitty", "median", "centroid"), selected="complete")
   ),
   mainPanel(
     tabsetPanel(type = "tabs",

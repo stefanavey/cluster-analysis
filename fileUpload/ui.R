@@ -9,7 +9,6 @@ shinyUI(fluidPage(
                   'text/comma-separated-values,text/plain',
                   '.csv')),
       tags$hr(),
-      checkboxInput('log2', 'Log 2 Transform', TRUE),
       checkboxInput('header', 'Header', TRUE),
       ## Tranpose if samples are in rows
       radioButtons('transpose', 'Samples in:',
@@ -25,7 +24,9 @@ shinyUI(fluidPage(
                    c(None='',
                      'Double Quote'='"',
                      'Single Quote'="'"),
-                   '')
+                   ''),
+      tags$hr(),
+      checkboxInput('log2', 'Log 2 Transform', TRUE)
     ),
     mainPanel(
       dataTableOutput("table")
