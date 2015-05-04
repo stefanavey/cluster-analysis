@@ -15,8 +15,7 @@ shinyServer(function(input, output) {
     ## dat is assigned to global environment using <<- operator
     ## so other apps can use it!
     if (is.null(inFile)) {
-      dat <<- NULL
-      return(dat)
+      return(NULL)
     }
 
     dat <- read.csv(inFile$datapath, header=input$header, sep=input$sep,

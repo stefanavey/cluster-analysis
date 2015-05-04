@@ -1,15 +1,3 @@
-## shinyUI(bootstrapPage(
-##     plotOutput('plot1', height = "500px"),
-##     selectInput('xcol', 'X Variable', setdiff(names(iris), "Species")),
-##     selectInput('ycol', 'Y Variable', setdiff(names(iris), "Species"),
-##                 selected=names(iris)[[2]]),
-##     numericInput('clusters', 'Cluster count', 3,
-##                  min = 1, max = 9),
-##     checkboxInput(inputId = "indicateSpecies",
-##                   label = strong("Indicate True Species"),
-##                   value = FALSE)
-## ))
-
 shinyUI(fluidPage(
   headerPanel(""),
   sidebarPanel(
@@ -23,7 +11,24 @@ shinyUI(fluidPage(
                   "binary", "minkowski"), selected="manhattan"),
     selectInput('clustMethod', 'Agglomeration Method for Clustering',
                 c("complete", "ward", "single", "average",
-                  "mcquitty", "median", "centroid"), selected="complete")
+                  "mcquitty", "median", "centroid"), selected="complete"),
+    tags$hr(),
+    checkboxInput(inputId = "rem",
+                  label = strong("Choose Features to Exclude"),
+                  value = FALSE),
+    uiOutput("condPanel1"),
+    ## conditionalPanel(
+    ##   condition = "input.rem == true",
+    ##   selectizeInput('toRm', "Exclude", choices=sort(rownames(datGlobal)), multiple=TRUE)
+    ## ),
+    checkboxInput(inputId = "incl",
+                  label = strong("Choose Features to Include"),
+                  value = FALSE),
+    uiOutput("condPanel2")
+    ## conditionalPanel(
+    ##   condition = "input.incl == true",
+    ##   selectizeInput('toIncl', "Include Only", choices=sort(rownames(datGlobal)), multiple=TRUE)
+    ## )
   ),
   mainPanel(
     tabsetPanel(type = "tabs",

@@ -28,6 +28,7 @@ includeMarkdown("introduction/intro.md")
 Use the file uploader below to select a CSV file.
 
 ```{r fileupload, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
+datGlobal <<- NULL # Start with NULL and set when file is uploaded
  shinyAppDir(
      "fileUpload/",
      options=list(width="100%", height=600)
@@ -49,7 +50,7 @@ includeMarkdown("acknowledgements/ack.md")
 
 <footer>
 <center><medium>View <a href="http://github.com/stefanavey/cluster-analysis" target="_blank" title="Cluster Analysis Source Code">Source Code</a> on Github</medium></center>
-<center><small><em>Version 0.0.1002</em> - Last Updated 2015-05-03</small></center>
+<center><small><em>Version 0.0.1004</em> - Last Updated 2015-05-04</small></center>
 </footer>
 
 
