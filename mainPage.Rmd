@@ -10,12 +10,12 @@ runtime: shiny
 
 ```{r createDocument, eval=FALSE, echo=FALSE}
 
-library(rmarkdown)
-rmarkdown::run('mainPage.Rmd') # for interactive document
+# library(rmarkdown)
+# rmarkdown::run('mainPage.Rmd') # for interactive document
 
 ## For deployment to shinyapps.io only!
-library(shinyapps)
-shinyapps::deployApp(appDir=getwd(), appName="cluster-analysis")
+# library(shinyapps)
+# shinyapps::deployApp(appDir=getwd(), appName="cluster-analysis")
 
 ```
 
@@ -28,7 +28,7 @@ includeMarkdown("introduction/intro.md")
 Use the file uploader below to select a CSV file.
 
 ```{r fileupload, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
-datGlobal <<- NULL # Start with NULL and set when file is uploaded
+datGlobal <- NULL # Start with NULL and set when file is uploaded
  shinyAppDir(
      "fileUpload/",
      options=list(width="100%", height=600)
