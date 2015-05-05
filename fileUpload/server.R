@@ -12,8 +12,6 @@ shinyServer(function(input, output) {
 
     inFile <- input$file1
 
-    ## dat is assigned to global environment using <<- operator
-    ## so other apps can use it!
     if (is.null(inFile)) {
       return(NULL)
     }
