@@ -43,6 +43,14 @@ shinyAppDir(
    )
 ```
 
+## Gene Ranking
+```{r ranking, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
+shinyAppDir(
+     "ranking/",
+     options=list(width="100%", height=700)
+   )
+```
+
 # Acknowledgements
 ```{r acknowledge, echo = FALSE, eval=TRUE}
 includeMarkdown("acknowledgements/ack.md")
