@@ -10,12 +10,12 @@ runtime: shiny
 
 ```{r createDocument, eval=FALSE, echo=FALSE}
 
-# library(rmarkdown)
-# rmarkdown::run('mainPage.Rmd') # for interactive document
+library(rmarkdown)
+rmarkdown::run('mainPage.Rmd') # for interactive document
 
 ## For deployment to shinyapps.io only!
-# library(shinyapps)
-# shinyapps::deployApp(appDir=getwd(), appName="cluster-analysis")
+library(shinyapps)
+shinyapps::deployApp(appDir=getwd(), appName="cluster-analysis")
 
 ```
 

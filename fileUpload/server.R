@@ -1,7 +1,30 @@
 library(shiny)
 
 shinyServer(function(input, output) {
-  # output$contents
+  output$contents <- renderTable({
+
+    inFile <- input$file1
+
+    if (is.null(inFile)) {
+      return(NULL)
+    }
+
+    dat <- read.csv(inFile$datapath, header=input$header, sep=input$sep,
+                    quote=input$quote, check.names=FALSE)
+    rownames(dat) <- dat[,1]
+    dat <- dat[,-1]
+    if(input$transpose) {
+      cnames <- colnames(dat)
+      dat <- as.data.frame(t(dat))
+      rownames(dat) <- cnames
+    }
+    if(input$log2) {
+      dat <- log2(dat+1)
+    }
+    datGlobal <<- dat
+    return(dat)
+  })
+
   output$table <- renderDataTable({
 
     ## input$file1 will be NULL initially. After the user selects
