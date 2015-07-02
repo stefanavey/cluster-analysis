@@ -29,7 +29,8 @@ shinyUI(fluidPage(
       checkboxInput('log2', 'Log 2 Transform', TRUE)
     ),
     mainPanel(
-      dataTableOutput("table")
+      ## dataTableOutput("table")
+      tableOutput('contents')
     )
   )
 ))
