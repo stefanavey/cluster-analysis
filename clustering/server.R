@@ -1,5 +1,6 @@
 library(gplots)                         # for heatmap.2
 library(RColorBrewer)
+source('./clustering/heatmap2.R')                     # overwrite heatmap.2 with my version
 
 shinyServer(function(input, output, session) {
 
@@ -54,15 +55,39 @@ shinyServer(function(input, output, session) {
     corMat <- cor(selDat, method=input$method)
     op <- par(mar = c(12, 4.1, 2, 15), oma=c(6, 0, 0, 6))
     hmcols <- colorRampPalette(c("white","red"))(256)
+    if(input$chooseBreaks) {
+      if(all(corMat >= 0, na.rm=TRUE)) {
+        breaks <- seq(0, 1, length.out=256+1) # must have 1 more break than color
+      }
+    } else {
+      breaks <- NULL
+    }
     hc <- hclust(dist(corMat, method=input$distMethod),
                  method=input$clustMethod)
     ## hc <- hclust(dist(t(selDat), method=input$distMethod),
     ##              method=input$clustMethod)
     ## hc <- hclust(as.dist(1-cor(corMat, method="spearman")), method=input$clustMethod)
-    heatmap.2(corMat,
-              Colv=as.dendrogram(hc), Rowv=as.dendrogram(hc),
-              dendrogram="column", trace="none",
-              col=hmcols, scale="none")
+    ## cellnote does not have default argument of NULL so need an if statement
+    ## here to include it or not
+    if(input$showCors) {
+      cellnote <- apply(round(corMat, 2), 2, as.character)
+      heatmap2(corMat,
+               Colv=as.dendrogram(hc), Rowv=as.dendrogram(hc),
+               dendrogram="column", trace="none",
+               breaks=breaks,
+               cellnote=cellnote,
+               notecol="black",
+               density.info="hist",
+               col=hmcols, scale="none")
+    } else {
+      heatmap2(corMat,
+               Colv=as.dendrogram(hc), Rowv=as.dendrogram(hc),
+               dendrogram="column", trace="none",
+               breaks=breaks,
+               density.info="hist",
+               col=hmcols, scale="none")
+    }
+    
     par(op)
   })
 })
