@@ -43,7 +43,7 @@ shinyAppDir(
    )
 ```
 
-## Gene Ranking
+## Feature Ranking
 ```{r ranking, echo = FALSE, eval=TRUE, message=FALSE, warning=TRUE}
 shinyAppDir(
      "ranking/",
@@ -58,7 +58,7 @@ includeMarkdown("acknowledgements/ack.md")
 
 <footer>
 <center><medium>View <a href="http://github.com/stefanavey/cluster-analysis" target="_blank" title="Cluster Analysis Source Code">Source Code</a> on Github</medium></center>
-<center><small><em>Version 0.0.1004</em> - Last Updated 2015-05-04</small></center>
+<center><small><em>Version 0.0.1006</em> - Last Updated 2015-06-09</small></center>
 </footer>
 
 
