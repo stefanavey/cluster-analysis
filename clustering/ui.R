@@ -13,6 +13,14 @@ shinyUI(fluidPage(
                 c("complete", "ward", "single", "average",
                   "mcquitty", "median", "centroid"), selected="complete"),
     tags$hr(),
+    checkboxInput(inputId = "showCors",
+                  label = strong("Show Correlations"),
+                  value = FALSE),
+    checkboxInput(inputId = "chooseBreaks",
+                  label = strong("Force color key to start at 0"),
+                  value = FALSE),
+    
+    tags$hr(),
     checkboxInput(inputId = "rem",
                   label = strong("Choose Features to Exclude"),
                   value = FALSE),
@@ -29,6 +37,7 @@ shinyUI(fluidPage(
     ##   condition = "input.incl == true",
     ##   selectizeInput('toIncl', "Include Only", choices=sort(rownames(datGlobal)), multiple=TRUE)
     ## )
+    
   ),
   mainPanel(
     tabsetPanel(type = "tabs",
